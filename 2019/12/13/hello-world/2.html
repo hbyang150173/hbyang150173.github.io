@@ -1,0 +1,115 @@
+# 第一章   初步学习笔记
+
+## 1.1 第一个C程序
+
+在屏幕上打印 字符串
+
+```c
+#include<stdio.h>
+int main()
+{
+    printf("Hello Typoro");
+    return 0;
+}
+```
+
+## 1.2 汉诺塔算法
+
+根据谭浩强的书籍并没有完全理解汉诺塔算法。这是一个递归算法，核心就是理解算法中的 盘子从谁   借助 谁  移到 谁
+
+```c
+/*汉诺塔算法开始没怎么看懂，感觉谭浩强的那本书也
+没有讲的太清
+楚，从网上又搜了一些内容，感觉懂了一些
+*/
+#include<stdio.h>
+#include<string.h>
+void move(char x,char y);
+void hanoi(int n, char one,char two , char three);
+
+
+int mian()
+{
+	int n; char A,B,C;
+	printf("请输入数字");
+	scanf("%d",&n);
+
+	hanoi(n,A,B,C );
+
+}
+
+
+
+void move(char x,char y)
+{
+	printf("%s ---> %s \n",x,y);
+}
+
+
+
+void hanoi(int n, char one,char two , char three)
+{
+	void move(char x, char y);
+	if (n==1)
+	move(one,three);
+	else
+	{
+		hanoi(n-1,one,three,two);
+		move(one,three);
+		hanoi(n-1,two,one,three);
+	}
+
+}
+
+```
+
+
+
+## 1.3 排序算法
+
+排序算法有很多，算法思想能理解，但是实现方式还不怎么会，这里自己完成了选择排序算法的书写
+
+其他算法可以参见下面这个网址的描述：
+
+[排序算法](https://blog.csdn.net/a2311minghan/article/details/89491853)
+
+```c
+#include<stdio.h>
+int main()
+{
+	int i,j,index,k,a[10];
+	printf("请输入10个整数\n");
+	for(i=0;i<10;i++)
+		scanf("%d",&a[i]);
+	printf("*************\n");
+
+	for(i=0;i<10;i++)
+	{
+		index=i;
+		for(j=i+1;j<10;j++)
+		{
+			if(a[j]<a[index])
+			{
+				k=a[index];
+				a[index]=a[j];
+				a[j]=k;
+			}
+		}
+
+	}
+
+
+	for(i=0;i<10;i++)
+	printf("%d\n",a[i]);
+
+}
+```
+
+## 1.4 指针的学习
+
+
+
+
+
+
+
